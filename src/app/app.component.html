@@ -1,0 +1,46 @@
+<div class="p-grid p-mt-6">
+  <div class="p-col-2"></div>
+  <div class="p-col-8">
+
+    <span class="p-input-icon-left">
+      <i class="pi pi-search"></i>
+      <input type="text" pInputText [(ngModel)]="year" placeholder="Search">
+    </span>
+    <button pButton type="button" label="Search" (click)="searchYearDetails()"></button>
+
+  </div>
+  <div class="p-col-2"></div>
+</div>
+
+<div class="p-grid p-mt-6">
+  <div class="p-col-1">
+    <button pButton type="button" label="Prev." (click)="previous()"></button>
+  </div>
+  <div class="p-col-10">
+
+  </div>
+  <div class="p-col-1">
+    <button pButton type="button" label="Next." (click)="next()"></button>
+  </div>
+</div>
+
+
+<p-table [value]="tableData">
+  <ng-template pTemplate="header">
+    <tr>
+      <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon>
+      </th>
+      <th pSortableColumn="population">Population <p-sortIcon field="population"></p-sortIcon>
+      </th>
+      <th pSortableColumn="gdp">GDP <p-sortIcon field="gdp"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-country>
+    <tr>
+      <td>{{country.name}}</td>
+      <td>{{country.population}}</td>
+      <td>{{country.gdp}}</td>
+    </tr>
+  </ng-template>
+</p-table>
